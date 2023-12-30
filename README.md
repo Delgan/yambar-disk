@@ -14,8 +14,8 @@ cargo build --release
 Then install it:
 
 ```bash
- sudo cp target/release/yambar-disk /usr/bin/
- ```
+sudo cp target/release/yambar-disk /usr/bin/
+```
 
 ## Usage
 
