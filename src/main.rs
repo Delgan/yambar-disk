@@ -10,6 +10,7 @@ struct AppArgs {
 
 struct DiskSpace {
     free: u64,
+    available: u64,
     used: u64,
     total: u64,
 }
@@ -70,6 +71,7 @@ impl DiskSpace {
     fn from_statvfs(stat: statvfs::Statvfs) -> Self {
         DiskSpace {
             free: stat.blocks_free() * stat.fragment_size(),
+            available: stat.blocks_available() * stat.fragment_size(),
             used: (stat.blocks() - stat.blocks_free()) * stat.fragment_size(),
             total: stat.blocks() * stat.fragment_size(),
         }
@@ -85,11 +87,16 @@ fn get_disk_space(path: &PathBuf) -> Result<DiskSpace, errno::Errno> {
 
 fn print_disk_space(disk_space: DiskSpace) {
     println!("free|int|{}", disk_space.free);
+    println!("available|int|{}", disk_space.available);
     println!("used|int|{}", disk_space.used);
     println!("total|int|{}", disk_space.total);
     println!(
         "percent_free|range:0-100|{}",
         (disk_space.free as f64 / disk_space.total as f64 * 100.0) as u64
+    );
+    println!(
+        "percent_available|range:0-100|{}",
+        (disk_space.available as f64 / disk_space.total as f64 * 100.0) as u64
     );
     println!(
         "percent_used|range:0-100|{}",
