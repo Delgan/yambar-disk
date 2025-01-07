@@ -23,15 +23,15 @@ The `yambar-disk` program will output disk space information at regular interval
 
 It produces the following tags that can be used by Yambar:
 
-| Name         | Type  | Description                |
-| ------------ | ----- | -------------------------- |
-| free         | int   | Free disk space in bytes   |
-| available         | int   | Free disk space for unprivileged users in bytes   |
-| used         | int   | Used disk space in bytes   |
-| total        | int   | Total disk space in bytes  |
-| percent_free | range | Free disk space in percent |
-| percent_available | range | Free disk space for unprivileged users in percent |
-| percent_used | range | Used disk space in percent |
+| Name              | Type  | Description                                            |
+| ----------------- | ----- | ------------------------------------------------------ |
+| free              | int   | Free disk space in bytes                               |
+| available         | int   | Available disk space for unprivileged users in bytes   |
+| used              | int   | Used disk space in bytes                               |
+| total             | int   | Total disk space in bytes                              |
+| percent_free      | range | Free disk space in percent                             |
+| percent_available | range | Available disk space for unprivileged users in percent |
+| percent_used      | range | Used disk space in percent                             |
 
 
 ## Configuration
