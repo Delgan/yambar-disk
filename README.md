@@ -14,7 +14,7 @@ cargo build --release
 Then install it:
 
 ```bash
-sudo cp target/release/yambar-disk /usr/bin/
+sudo cp target/release/yambar-disk /usr/local/bin/
 ```
 
 ## Usage
@@ -58,7 +58,7 @@ bar:
 
   left:
     - script:
-        path: /usr/bin/yambar-disk
+        path: /usr/local/bin/yambar-disk
         args: [--poll-interval, 2000, --path, /]
         content:
           - string:
